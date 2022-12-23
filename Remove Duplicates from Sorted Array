@@ -1,0 +1,15 @@
+class Solution {
+    public int removeDuplicates(int[] arr) {
+        int l=1,r=1,n=arr.length;
+        while(l<n && r<n) {
+            if(arr[r]==arr[r-1]) {
+                r++;
+            }
+            else {
+                arr[l]=arr[r];
+                l++;r++;
+            }
+        }
+        return l;
+    }
+}
