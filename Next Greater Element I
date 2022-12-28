@@ -1,0 +1,32 @@
+class Solution {
+    public int[] nextGreaterElement(int[] n1, int[] n2) {
+        int arr[]=new int[n1.length];
+        for(int i=0;i<n1.length;i++) {
+            for(int j=0;j<n2.length;j++) {
+                if(n1[i]==n2[j] && j!=n2.length-1) {
+                    int f=0;
+                    for(int k=j+1;k<n2.length;k++) {
+                        if(n2[k]>n1[i]) {
+                            arr[i]=n2[k];
+                            f=1;
+                            break;
+                        }
+                    }
+                    if(f==0) {
+                        arr[i]=-1;
+                    }
+                    break;
+                }
+                else {
+                    if(n2[j]>n1[i]) {
+                        arr[i]=n2[j];
+                    }
+                    else {
+                        arr[i]=-1;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+}
